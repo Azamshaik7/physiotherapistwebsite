@@ -15,7 +15,7 @@ const isAuthenticated = () => {
 
 // Protected Route Component
 const ProtectedRoute = ({ element: Component }) => {
-  return isAuthenticated() ? Component : <Navigate to="/sign-in" />;
+  return isAuthenticated() ? Component : <Navigate to="/" />;
 };
 
 export default function Approuter() {

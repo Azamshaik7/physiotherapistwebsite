@@ -86,7 +86,7 @@ export default function Appointment() {
     try {
       // Make the API request to book an appointment
       const response = await axios.post(
-        'https://physiotherapy-backend1.onrender.com/api/auth/bookAppointment',
+        'https://physiotherapy-backend1.onrender.com/api/auth/bookAppointmentTwo',
         { ...formData }, // Send form data
         {
           headers: {
@@ -177,29 +177,7 @@ export default function Appointment() {
                   <option value="Physiotherapy at Home">Physiotherapy at Home</option>
                   <option value="Transition Care / Rehabilitation">Transition Care / Rehabilitation</option>
                 </select>
-                <select
-                  name='doctors'
-                  onChange={handleInputChange}
-                >
-                  <option value="">Doctors</option>
-                  <option value="Dr.Suresh">Dr.Suresh</option>
-                  <option value="Dr.Ashok">Dr.Ashok</option>
-                  <option value="Dr.Harsha">Dr.Harsha</option>
-                </select>
-                <select
-                                    name="category"
-                                    value={formData.category}
-                                    onChange={handleInputChange}
-                                    required
-                                >
-                                    <option value="" disabled>Select Category</option>
-                                    <option value="Lower Back Pain">Lower Back Pain</option>
-                                    <option value="Neck and Upper Back Pain">Neck and Upper Back Pain</option>
-                                    <option value="Knee Pain">Knee Pain</option>
-                                    <option value="Shoulder Pain">Shoulder Pain</option>
-                                    <option value="Wrist Pain">Wrist Pain</option>
-                                    <option value="Other Chronic Pain">Other Chronic Pain</option>
-                                </select>
+               
 
                 {error && <p className="error">{error}</p>}
 
