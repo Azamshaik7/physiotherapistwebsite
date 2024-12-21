@@ -205,10 +205,17 @@ export default function Navbar() {
   };
 
   // Handle logout
+  // const handleLogout = () => {
+  //   localStorage.removeItem('token'); // Remove token from localStorage
+  //   setIsLoggedIn(false); // Update the state
+  //   navigate('/sign-in'); // Redirect to the sign-in page
+  // };
+
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove token from localStorage
-    setIsLoggedIn(false); // Update the state
-    navigate('/sign-in'); // Redirect to the sign-in page
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
+    alert('You have been logged out successfully');
+    navigate('/sign-in');
   };
 
   return (
@@ -234,13 +241,23 @@ export default function Navbar() {
           <li className='navlist'>Healing Stories</li>
 
           {/* Show SignIn or Logout based on the user's login state */}
-          {isLoggedIn ? (
+          {/* {isLoggedIn ? (
             <li className='navlist'>
               <Link className='activelist' onClick={handleLogout}>Logout</Link>
             </li>
           ) : (
             <li className='navlist'>
               <Link to="/sign-in" className='activelist'>Signin</Link>
+            </li>
+          )} */}
+
+          {isLoggedIn ? (
+            <li className="navlist">
+              <Link className="activelist" onClick={handleLogout}>Logout</Link>
+            </li>
+          ) : (
+            <li className="navlist">
+              <Link to="/sign-in" className="activelist">Signin</Link>
             </li>
           )}
 
