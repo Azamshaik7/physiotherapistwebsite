@@ -177,7 +177,7 @@ export default function Appointment() {
                   <option value="Physiotherapy at Home">Physiotherapy at Home</option>
                   <option value="Transition Care / Rehabilitation">Transition Care / Rehabilitation</option>
                 </select>
-                <select
+                {/* <select
                   name='doctors'
                   onChange={handleInputChange}
                 >
@@ -185,8 +185,8 @@ export default function Appointment() {
                   <option value="Dr.Suresh">Dr.Suresh</option>
                   <option value="Dr.Ashok">Dr.Ashok</option>
                   <option value="Dr.Harsha">Dr.Harsha</option>
-                </select>
-                <select
+                </select> */}
+                {/* <select
                                     name="category"
                                     value={formData.category}
                                     onChange={handleInputChange}
@@ -199,7 +199,7 @@ export default function Appointment() {
                                     <option value="Shoulder Pain">Shoulder Pain</option>
                                     <option value="Wrist Pain">Wrist Pain</option>
                                     <option value="Other Chronic Pain">Other Chronic Pain</option>
-                                </select>
+                                </select> */}
 
                 {error && <p className="error">{error}</p>}
 
