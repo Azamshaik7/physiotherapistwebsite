@@ -14,8 +14,7 @@ export default function Appointment() {
     lastName: '',
     phoneNumber: '',
     date: '',
-    service: '',
-    doctors: ''
+    service: ''
   });
 
   const [currentDateTime, setCurrentDateTime] = useState('');
@@ -49,7 +48,7 @@ export default function Appointment() {
 
   // Validation function
   const validateForm = () => {
-    const { firstName, lastName, phoneNumber, date, service, doctors,category } = formData;
+    const { firstName, lastName, phoneNumber, date, service} = formData;
 
     if (!firstName || !lastName) return 'First and Last name are required.';
     if (!/^[A-Za-z]+$/.test(firstName) || !/^[A-Za-z]+$/.test(lastName)) {
@@ -60,8 +59,6 @@ export default function Appointment() {
     }
     if (!date) return 'Please select a date and time.';
     if (!service) return 'Please select a service.';
-    if (!doctors) return 'Please select a doctor.';
-    if (!category) return 'Please select a category.';
     return ''; // No errors
   };
 
