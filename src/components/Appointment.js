@@ -155,10 +155,6 @@ export default function Appointment() {
                   placeholder='Enter Phone Number'
                   onChange={handleInputChange}
                 />
-                <div
-                  className='datePickerWrapper '
-                  onClick={() => dateTimeInputRef.current?.showPicker()} // Open date-time picker
-                >
                   <input
                     type='datetime-local'
                     value={currentDateTime}
@@ -201,6 +197,10 @@ export default function Appointment() {
                                     <option value="Other Chronic Pain">Other Chronic Pain</option>
                                 </select>
 
+                <div
+                  className='datePickerWrapper '
+                  onClick={() => dateTimeInputRef.current?.showPicker()} // Open date-time picker
+                >
                 {error && <p className="error">{error}</p>}
 
                 <div className='appointmentsubmitmain'>
