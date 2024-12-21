@@ -23,7 +23,7 @@ export default function Approuter() {
     <Router basename="/physiotherapistwebsite">
 
       <Routes>
-        <Route path="/" element={<ProtectedRoute element={<Home />} />} />
+        <Route path="/" element={<ProtectedRoute element={<SignIn/>} />} />
         <Route path="/book-appointment" element={<ProtectedRoute element={<BookAppointment />} />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUpForm />} />
