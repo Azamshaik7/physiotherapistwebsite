@@ -240,7 +240,7 @@ export default function Navbar() {
             </li>
           ) : (
             <li className='navlist'>
-              <Link to="/sign-in" className='activelist'></Link>
+              <Link to="/sign-in" className='activelist'>Signin</Link>
             </li>
           )}
 
