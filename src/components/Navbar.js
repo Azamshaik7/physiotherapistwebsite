@@ -84,17 +84,14 @@ export default function Navbar() {
             <Link to='/services' className='activelist'>Services</Link>
           </li>
           <li className='navlist'>Healing Stories</li>
-          {/* Conditionally render or disable SignIn */}
+
+          {/* Only show SignIn if the user is not logged in */}
           {!isLoggedIn && (
             <li className='navlist'>
               <Link to="/sign-in" className='activelist'>SignIn</Link>
             </li>
           )}
-          {isLoggedIn && (
-            <li className='navlist'>
-              <button className="btn22" disabled>Already Signed In</button>
-            </li>
-          )}
+
           <li>
             <Link className='adjust' to="/book-appointment">
               <button className="btn22">Book an Appointment</button>
