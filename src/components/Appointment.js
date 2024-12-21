@@ -14,7 +14,8 @@ export default function Appointment() {
     lastName: '',
     phoneNumber: '',
     date: '',
-    service: ''
+    service: '',
+    doctors: ''
   });
 
   const [currentDateTime, setCurrentDateTime] = useState('');
@@ -48,7 +49,7 @@ export default function Appointment() {
 
   // Validation function
   const validateForm = () => {
-    const { firstName, lastName, phoneNumber, date, service} = formData;
+    const { firstName, lastName, phoneNumber, date, service, doctors,category } = formData;
 
     if (!firstName || !lastName) return 'First and Last name are required.';
     if (!/^[A-Za-z]+$/.test(firstName) || !/^[A-Za-z]+$/.test(lastName)) {
@@ -59,6 +60,8 @@ export default function Appointment() {
     }
     if (!date) return 'Please select a date and time.';
     if (!service) return 'Please select a service.';
+    if (!doctors) return 'Please select a doctor.';
+    if (!category) return 'Please select a category.';
     return ''; // No errors
   };
 
@@ -83,7 +86,7 @@ export default function Appointment() {
     try {
       // Make the API request to book an appointment
       const response = await axios.post(
-        'https://physiotherapy-backend1.onrender.com/api/auth/bookAppointmentTwo',
+        'https://physiotherapy-backend1.onrender.com/api/auth/bookAppointment',
         { ...formData }, // Send form data
         {
           headers: {
@@ -174,7 +177,29 @@ export default function Appointment() {
                   <option value="Physiotherapy at Home">Physiotherapy at Home</option>
                   <option value="Transition Care / Rehabilitation">Transition Care / Rehabilitation</option>
                 </select>
-               
+                <select
+                  name='doctors'
+                  onChange={handleInputChange}
+                >
+                  <option value="">Doctors</option>
+                  <option value="Dr.Suresh">Dr.Suresh</option>
+                  <option value="Dr.Ashok">Dr.Ashok</option>
+                  <option value="Dr.Harsha">Dr.Harsha</option>
+                </select>
+                <select
+                                    name="category"
+                                    value={formData.category}
+                                    onChange={handleInputChange}
+                                    required
+                                >
+                                    <option value="" disabled>Select Category</option>
+                                    <option value="Lower Back Pain">Lower Back Pain</option>
+                                    <option value="Neck and Upper Back Pain">Neck and Upper Back Pain</option>
+                                    <option value="Knee Pain">Knee Pain</option>
+                                    <option value="Shoulder Pain">Shoulder Pain</option>
+                                    <option value="Wrist Pain">Wrist Pain</option>
+                                    <option value="Other Chronic Pain">Other Chronic Pain</option>
+                                </select>
 
                 {error && <p className="error">{error}</p>}
 
