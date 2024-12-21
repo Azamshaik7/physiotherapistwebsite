@@ -30,6 +30,7 @@ export default function Approuter() {
         <Route path="/services" element={<ProtectedRoute element={<ServicesPage />} />} />
         <Route path="/sidebar" element={<ProtectedRoute element={<Sidebar />} />} />
         <Route path="/dashboard/*" element={<ProtectedRoute element={<App1 />} />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );
