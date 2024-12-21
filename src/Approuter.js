@@ -15,13 +15,12 @@ const isAuthenticated = () => {
 
 // Protected Route Component
 const ProtectedRoute = ({ element: Component }) => {
-  return isAuthenticated() ? Component : <Navigate to="/home" />;
+  return isAuthenticated() ? Component : <Navigate to="/" />;
 };
 
 export default function Approuter() {
   return (
     <Router basename="/physiotherapistwebsite">
-
       <Routes>
         <Route path="/home" element={<ProtectedRoute element={<Home />} />} />
         <Route path="/" element={<ProtectedRoute element={<Home />} />} />
