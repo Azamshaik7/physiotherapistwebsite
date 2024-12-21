@@ -32,7 +32,7 @@ export default function SignInForm() {
 
       if (response.status === 200) {
         alert('Login successful!');
-        localStorage.setItem('token', response.data.token);
+        sessionStorage.setItem('token', response.data.token);
         navigate('/dashboard'); // Redirect to homepage/dashboard
       }
     } catch (err) {

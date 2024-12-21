@@ -12,7 +12,7 @@ function Profile() {
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const token = localStorage.getItem('token');
+        const token = sessionStorage.getItem('token');
         if (!token) {
           setError('You are not logged in.');
           return;
@@ -32,8 +32,8 @@ function Profile() {
   }, []);
 
   const handleLogout = () => {
-    // Remove the token from localStorage
-    localStorage.removeItem('token');
+    // Remove the token from sessionStorage
+    sessionStorage.removeItem('token');
     
     // Redirect to sign-in page
     navigate('/sign-in');

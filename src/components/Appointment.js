@@ -76,8 +76,8 @@ export default function Appointment() {
       return;
     }
   
-    // Retrieve the JWT token from localStorage
-    const token = localStorage.getItem('token');
+    // Retrieve the JWT token from sessionStorage
+    const token = sessionStorage.getItem('token');
     if (!token) {
       setError('You are not logged in. Please log in to continue.');
       return;

@@ -10,7 +10,7 @@ import App1 from './components/dashbord/App1';
 
 // Mock function to check authentication
 const isAuthenticated = () => {
-  return localStorage.getItem('token'); // Replace with your actual authentication logic
+  return sessionStorage.getItem('token'); // Replace with your actual authentication logic
 };
 
 // Protected Route Component
