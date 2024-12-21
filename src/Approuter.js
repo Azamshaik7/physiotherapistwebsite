@@ -55,13 +55,14 @@ const isAuthenticated = () => {
 
 // Protected Route Component
 const ProtectedRoute = ({ element: Component }) => {
-  return isAuthenticated() ? Component : <Navigate to="/sign-in" />; // Redirect if not authenticated
+  return isAuthenticated() ? Component : <Navigate to="/sign-in" />; // Redirect to sign-in if not authenticated
 };
 
 export default function Approuter() {
+  // Redirect to Sign In page on load if user is not logged in
   useEffect(() => {
-    // If user is not logged in, redirect to the sign-in page when the app loads
     if (!isAuthenticated()) {
+      // Automatically redirect to the sign-in page if not authenticated
       window.location.replace('/sign-in');
     }
   }, []);
@@ -69,7 +70,11 @@ export default function Approuter() {
   return (
     <Router basename="/physiotherapistwebsite">
       <Routes>
-        <Route path="/" element={<ProtectedRoute element={<Home />} />} />
+        {/* Initially redirect to Sign-In page */}
+        <Route path="/" element={isAuthenticated() ? <Navigate to="/home" /> : <SignIn />} />
+        
+        {/* Protected Routes */}
+        <Route path="/home" element={<ProtectedRoute element={<Home />} />} />
         <Route path="/book-appointment" element={<ProtectedRoute element={<BookAppointment />} />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUpForm />} />
@@ -80,3 +85,4 @@ export default function Approuter() {
     </Router>
   );
 }
+
