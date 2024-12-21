@@ -145,6 +145,8 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode'; // Import jwt-decode
 import { useNavigate } from 'react-router-dom';
 import './Profile.css';
+import { decode as jwtDecode } from 'jwt-decode';
+
 
 function Profile() {
   const [appointments, setAppointments] = useState([]);
