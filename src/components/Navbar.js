@@ -163,7 +163,7 @@ export default function Navbar() {
             </li>
           ) : (
             <li className='navlist'>
-              <button  onClick={handleLogout}>Logout</button>
+              <Link className='activelist'  onClick={handleLogout}>Logout</Link>
             </li>
           )}
 
