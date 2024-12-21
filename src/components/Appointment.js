@@ -60,8 +60,8 @@ export default function Appointment() {
     }
     if (!date) return 'Please select a date and time.';
     if (!service) return 'Please select a service.';
-    if (!doctors) return 'Please select a doctor.';
-    if (!category) return 'Please select a category.';
+    // if (!doctors) return 'Please select a doctor.';
+    // if (!category) return 'Please select a category.';
     return ''; // No errors
   };
 
