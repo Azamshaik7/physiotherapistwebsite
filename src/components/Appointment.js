@@ -12,7 +12,7 @@ export default function Appointment() {
   const [formData, setFormData] = useState({
     // firstName: '',
     // lastName: '',
-    phoneNumber: '',
+    // phoneNumber: '',
     date: '',
     service: '',
     doctors: ''
@@ -49,15 +49,15 @@ export default function Appointment() {
 
   // Validation function
   const validateForm = () => {
-    const {  phoneNumber, date, service, doctors,category } = formData;
+    const { date, service, doctors,category } = formData;
 
     // if (!firstName || !lastName) return 'First and Last name are required.';
     // if (!/^[A-Za-z]+$/.test(firstName) || !/^[A-Za-z]+$/.test(lastName)) {
     //   return 'Name should only contain alphabets.';
     // }
-    if (!phoneNumber || !/^[0-9]{10}$/.test(phoneNumber)) {
-      return 'Phone number must be 10 digits.';
-    }
+    // if (!phoneNumber || !/^[0-9]{10}$/.test(phoneNumber)) {
+    //   return 'Phone number must be 10 digits.';
+    // }
     if (!date) return 'Please select a date and time.';
     if (!service) return 'Please select a service.';
     if (!doctors) return 'Please select a doctor.';
@@ -149,12 +149,12 @@ export default function Appointment() {
                   placeholder='Enter Last Name'
                   onChange={handleInputChange}
                 /> */}
-                <input
+                {/* <input
                   type='text'
                   name='phoneNumber'
                   placeholder='Enter Phone Number'
                   onChange={handleInputChange}
-                />
+                /> */}
                 <div
                   className='datePickerWrapper '
                   onClick={() => dateTimeInputRef.current?.showPicker()} // Open date-time picker
