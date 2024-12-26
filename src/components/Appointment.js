@@ -10,8 +10,8 @@ export default function Appointment() {
 
   // Form state
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    // firstName: '',
+    // lastName: '',
     phoneNumber: '',
     date: '',
     service: '',
@@ -49,12 +49,12 @@ export default function Appointment() {
 
   // Validation function
   const validateForm = () => {
-    const { firstName, lastName, phoneNumber, date, service, doctors,category } = formData;
+    const {  phoneNumber, date, service, doctors,category } = formData;
 
-    if (!firstName || !lastName) return 'First and Last name are required.';
-    if (!/^[A-Za-z]+$/.test(firstName) || !/^[A-Za-z]+$/.test(lastName)) {
-      return 'Name should only contain alphabets.';
-    }
+    // if (!firstName || !lastName) return 'First and Last name are required.';
+    // if (!/^[A-Za-z]+$/.test(firstName) || !/^[A-Za-z]+$/.test(lastName)) {
+    //   return 'Name should only contain alphabets.';
+    // }
     if (!phoneNumber || !/^[0-9]{10}$/.test(phoneNumber)) {
       return 'Phone number must be 10 digits.';
     }
@@ -137,18 +137,18 @@ export default function Appointment() {
                 <h5>Book an Appointment</h5>
               </div>
               <form className='appointmentForm' onSubmit={handleFormSubmit}>
-                <input
+                {/* <input
                   type='text'
                   name='firstName'
                   placeholder='Enter First Name'
                   onChange={handleInputChange}
-                />
-                <input
+                /> */}
+                {/* <input
                   type='text'
                   name='lastName'
                   placeholder='Enter Last Name'
                   onChange={handleInputChange}
-                />
+                /> */}
                 <input
                   type='text'
                   name='phoneNumber'
