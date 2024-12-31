@@ -1,15 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirecting
+import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 
 function Profile() {
   const [appointments, setAppointments] = useState([]);
   const [error, setError] = useState('');
-  const [showDropdown, setShowDropdown] = useState(false); // To toggle the dropdown visibility
-  const navigate = useNavigate(); // Hook to navigate to different pages
+  const [userName, setUserName] = useState(''); // To store the user's name
+  const navigate = useNavigate();
 
   useEffect(() => {
+    const fetchUserData = async () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        setError('You are not logged in.');
+        return;
+      }
+
+      try {
+        const response = await axios.get('https://physiotherapy-backend1.onrender.com/api/auth/getUserDetails', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setUserName(response.data.name); // Set the user's name
+      } catch (err) {
+        console.error(err);
+        setError('Failed to fetch user data.');
+      }
+    };
+
     const fetchAppointments = async () => {
       try {
         const token = localStorage.getItem('token');
@@ -24,18 +42,15 @@ function Profile() {
         setAppointments(response.data);
       } catch (err) {
         console.error(err);
-        // setError('Failed to load appointments.');
       }
     };
 
+    fetchUserData();
     fetchAppointments();
   }, []);
 
   const handleLogout = () => {
-    // Remove the token from localStorage
     localStorage.removeItem('token');
-    
-    // Redirect to sign-in page
     navigate('/sign-in');
   };
 
@@ -62,10 +77,9 @@ function Profile() {
   return (
     <div className="page">
       <main className="main-content">
-        {/* Header */}
         <div className="header">
           <div className="greeting">
-            <h1>Good Morning Umair!</h1>
+            <h1>Good Morning, {userName}!</h1>
             <p>How are you feeling today?</p>
           </div>
           <div className="profile">
@@ -74,13 +88,23 @@ function Profile() {
               alt="Profile"
               className="profile-pic"
             />
-            <div class="dropdown show">
-              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Umair Iqbal
+            <div className="dropdown show">
+              <a
+                className="btn btn-secondary dropdown-toggle"
+                href="#"
+                role="button"
+                id="dropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                {userName}
               </a>
 
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" onClick={handleLogout} href="#">Logout</a>
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a className="dropdown-item" onClick={handleLogout} href="#">
+                  Logout
+                </a>
               </div>
             </div>
           </div>
@@ -117,7 +141,13 @@ function Profile() {
                       <td>{date}</td>
                       <td>{time}</td>
                       <td>
-                        <span style={{ ...getStatusStyle(appointment.status), padding: '5px', borderRadius: '5px' }}>
+                        <span
+                          style={{
+                            ...getStatusStyle(appointment.status),
+                            padding: '5px',
+                            borderRadius: '5px',
+                          }}
+                        >
                           {appointment.status}
                         </span>
                       </td>
