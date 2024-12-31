@@ -9,6 +9,7 @@ function Profile() {
   const [userName, setUserName] = useState(''); // To store the user's name
   const navigate = useNavigate();
 
+  // Fetch user details and appointments on component load
   useEffect(() => {
     const fetchUserData = async () => {
       const token = localStorage.getItem('token');
@@ -18,9 +19,10 @@ function Profile() {
       }
 
       try {
-        const response = await axios.get('https://physiotherapy-backend1.onrender.com/api/auth/getUserDetails', {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const response = await axios.get(
+          'https://physiotherapy-backend1.onrender.com/api/auth/getUserDetails',
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
         setUserName(response.data.name); // Set the user's name
       } catch (err) {
         console.error(err);
@@ -36,12 +38,14 @@ function Profile() {
           return;
         }
 
-        const response = await axios.get('https://physiotherapy-backend1.onrender.com/api/auth/getAppointments', {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        setAppointments(response.data);
+        const response = await axios.get(
+          'https://physiotherapy-backend1.onrender.com/api/auth/getAppointments',
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+        setAppointments(response.data); // Set appointments
       } catch (err) {
         console.error(err);
+        setError('Failed to fetch appointments.');
       }
     };
 
