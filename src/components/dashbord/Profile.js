@@ -17,18 +17,23 @@ function Profile() {
         setError('You are not logged in.');
         return;
       }
-
+    
       try {
         const response = await axios.get(
           'https://physiotherapy-backend1.onrender.com/api/auth/getUserDetails',
           { headers: { Authorization: `Bearer ${token}` } }
         );
-        setUserName(response.data.name); // Set the user's name
+        
+        // Capitalize the first letter of the user's name
+        const name = response.data.name;
+        const formattedName = name.charAt(0).toUpperCase() + name.slice(1);
+        setUserName(formattedName);
       } catch (err) {
         console.error(err);
         setError('Failed to fetch user data.');
       }
     };
+    
 
     const fetchAppointments = async () => {
       try {
