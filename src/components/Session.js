@@ -366,11 +366,11 @@ export default function Session() {
     const [error, setError] = useState('');
 
     const locationUrls = {
-        vizag: "https://www.google.com/maps/embed?...",
-        hyderabad: "https://www.google.com/maps/embed?...",
-        delhi: "https://www.google.com/maps/embed?...",
-        bengaluru: "https://www.google.com/maps/embed?...",
-        nellore: "https://www.google.com/maps/embed?..."
+        vizag: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.0650312177894!2d83.31642101434185!3d17.686815387913205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395cdd65aa6dc7%3A0x832f66b8ec9cba78!2sVisakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1605000250376!5m2!1sen!2sin",
+        hyderabad: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.621733133218!2d78.48667101434298!3d17.385044087906812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91c63a0e3c35%3A0x5526c14b287be1d4!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1605000284843!5m2!1sen!2sin",
+        delhi: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7002181.099593137!2d76.83145675000001!3d28.6315227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd0032d95bcd%3A0xc34f10d68f1fdc60!2sDelhi!5e0!3m2!1sen!2sin!4v1605000322558!5m2!1sen!2sin",
+        bengaluru: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.785519104987!2d77.59456201433455!3d12.971598587490146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670d4c7f08f%3A0xd001ab3e5d9d6b8d!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1605000364537!5m2!1sen!2sin",
+        nellore: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3828.4372199821414!2d79.99786371434063!3d14.442599787614717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d5c7306e746f1%3A0x8b2b5f93baf4e5b4!2sNellore%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1605000402306!5m2!1sen!2sin"
     };
 
     useEffect(() => {
