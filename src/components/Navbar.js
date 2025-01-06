@@ -331,27 +331,24 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa'; // Import the profile icon from react-icons
 import './navbar.css';
 import logo from '../images/logo1.jpg';
-import profileIcon from '../images/profile-icon.png'; // Add your profile icon image path
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
-  // Check if the token exists in localStorage
   useEffect(() => {
     const token = localStorage.getItem('token');
-    setIsLoggedIn(!!token); // Update login state
+    setIsLoggedIn(!!token);
   }, []);
 
-  // Toggle mobile menu
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  // Handle logout
   const handleLogout = () => {
     localStorage.removeItem('token');
     setIsLoggedIn(false);
@@ -380,7 +377,6 @@ export default function Navbar() {
           </li>
           <li className="navlist">Healing Stories</li>
 
-          {/* Show SignIn or Logout based on the user's login state */}
           {isLoggedIn ? (
             <li className="navlist">
               <Link className="activelist" onClick={handleLogout}>Logout</Link>
@@ -397,11 +393,10 @@ export default function Navbar() {
             </Link>
           </li>
 
-          {/* Profile Icon */}
           {isLoggedIn && (
             <li className="navlist">
               <Link to="/profile">
-                <img src={profileIcon} alt="Profile Icon" className="profile-icon" />
+                <FaUser className="profile-icon" size={24} /> {/* Profile icon from react-icons */}
               </Link>
             </li>
           )}
