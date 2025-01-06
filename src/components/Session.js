@@ -359,7 +359,7 @@ export default function Session() {
         doctors: '',
         category: ''
     });
-
+    const [selectedLocation, setSelectedLocation] = useState('hyderabad'); // Default location
     const [mapUrl, setMapUrl] = useState('');
     const [currentDateTime, setCurrentDateTime] = useState('');
     const dateTimeInputRef = useRef(null);
@@ -384,8 +384,8 @@ export default function Session() {
             return `${year}-${month}-${date}T${hours}:${minutes}`;
         };
         setCurrentDateTime(getCurrentDateTime());
-        setMapUrl(locationUrls.hyderabad); // Default location
-    }, []);
+        setMapUrl(locationUrls[selectedLocation]); // Set initial map URL
+    }, [selectedLocation]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -395,7 +395,8 @@ export default function Session() {
     const handleLocationChange = (event) => {
         const locationName = event.target.value.toLowerCase();
         if (locationUrls[locationName]) {
-            setMapUrl(locationUrls[locationName]);
+            setSelectedLocation(locationName);
+            setMapUrl(locationUrls[locationName]); // Update the map URL
         }
     };
 
@@ -472,9 +473,8 @@ export default function Session() {
                                 <select
                                     className='fontchange'
                                     onChange={handleLocationChange}
-                                    value={mapUrl}
+                                    value={selectedLocation} // Bind value to selectedLocation
                                 >
-                                    <option>Select location</option>
                                     <option value="vizag">Vizag</option>
                                     <option value="hyderabad">Hyderabad</option>
                                     <option value="delhi">Delhi</option>
