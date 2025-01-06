@@ -63,10 +63,11 @@ export default function Approuter() {
       <Routes>
         {/* Home Page accessible to all */}
         <Route path="/" element={<Home />} />
+        <Route path="/services" element={<ServicesPage />} />
         
         {/* Protected Routes */}
         <Route path="/book-appointment" element={<ProtectedRoute element={<BookAppointment />} />} />
-        <Route path="/services" element={<ProtectedRoute element={<ServicesPage />} />} />
+        {/* <Route path="/services" element={<ProtectedRoute element={<ServicesPage />} />} /> */}
         <Route path="/sidebar" element={<ProtectedRoute element={<Sidebar />} />} />
         <Route path="/dashboard/*" element={<ProtectedRoute element={<App1 />} />} />
         
