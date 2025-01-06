@@ -366,11 +366,11 @@ export default function Session() {
     const [error, setError] = useState('');
 
     const locationUrls = {
-        vizag: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.0650312177894!2d83.31642101434185!3d17.686815387913205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395cdd65aa6dc7%3A0x832f66b8ec9cba78!2sVisakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1605000250376!5m2!1sen!2sin",
-        hyderabad: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.621733133218!2d78.48667101434298!3d17.385044087906812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91c63a0e3c35%3A0x5526c14b287be1d4!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1605000284843!5m2!1sen!2sin",
-        delhi: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7002181.099593137!2d76.83145675000001!3d28.6315227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd0032d95bcd%3A0xc34f10d68f1fdc60!2sDelhi!5e0!3m2!1sen!2sin!4v1605000322558!5m2!1sen!2sin",
+        vizag: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243207.75285910896!2d83.09778211445273!3d17.738930442361777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39431389e6973f%3A0x92d9c20395498468!2sVisakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1736161900749!5m2!1sen!2sin",
+        hyderabad:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.1378846652!2d78.09621352831326!3d17.412434093026704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1736161972540!5m2!1sen!2sin",
+        delhi: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224096.98009516994!2d76.9284231158294!3d28.64428520968491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1736162035732!5m2!1sen!2sin",
         bengaluru: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.70000106044!2d77.3191054441572!3d12.954146703537198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1736161557007!5m2!1sen!2sin",
-        nellore: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3828.4372199821414!2d79.99786371434063!3d14.442599787614717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d5c7306e746f1%3A0x8b2b5f93baf4e5b4!2sNellore%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1605000402306!5m2!1sen!2sin"
+        nellore: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61823.4792011739!2d79.93950512763813!3d14.429039450531922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4c8cca0e958771%3A0xd3036c2025161f55!2sNellore%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1736162091850!5m2!1sen!2sin",
     };
 
     useEffect(() => {
